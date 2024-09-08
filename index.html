@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asia Pacific Fixed Income Technical Analysis</title>
+    <title>Global Fixed Income Technical Analysis</title>
     <style>
         :root {
             --primary-color: #3a5a8f;
             --secondary-color: #f0f4f8;
             --text-color: #333;
             --highlight-color: #e63946;
+            --category-colors: #4e79a7, #f28e2c, #e15759, #76b7b2;
         }
         body {
             font-family: 'Arial', sans-serif;
@@ -37,10 +38,23 @@
             font-style: italic;
             margin-top: 0.5em;
         }
+        .category {
+            margin-bottom: 2em;
+        }
+        .category-header {
+            background-color: var(--secondary-color);
+            padding: 1em;
+            border-radius: 8px;
+            margin-bottom: 1em;
+        }
+        .category-header h2 {
+            margin: 0;
+            color: var(--primary-color);
+        }
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2em;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5em;
         }
         .card {
             background: white;
@@ -48,7 +62,7 @@
             padding: 1.5em;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .card h2 {
+        .card h3 {
             color: var(--primary-color);
             margin-top: 0;
             border-bottom: 2px solid var(--secondary-color);
@@ -65,7 +79,7 @@
             border-radius: 4px;
             margin-top: 1em;
         }
-        .key-points h3 {
+        .key-points h4 {
             margin-top: 0;
             color: var(--primary-color);
         }
@@ -81,7 +95,7 @@
         .levels div {
             flex-basis: 48%;
         }
-        .levels h4 {
+        .levels h5 {
             margin: 0;
             color: var(--primary-color);
         }
@@ -101,135 +115,215 @@
 </head>
 <body>
     <header>
-        <h1>Asia Pacific Fixed Income Technical Analysis</h1>
+        <h1>Global Fixed Income Technical Analysis</h1>
         <p class="date">InTouch Capital Markets - Friday, September 6, 2024</p>
     </header>
 
-    <div class="container">
-        <div class="card">
-            <h2>Australia 3yr Bond Future (Sept' 24)</h2>
-            <p class="summary">Extends recovery, risk leaning higher</p>
-            <div class="key-points">
-                <h3>Key Points</h3>
-                <ul>
-                    <li>Thursday high: 96.53</li>
-                    <li>Range: 96.37 to 96.57</li>
-                    <li>9d RSI: 55.07 (+4.06), "Neutral"</li>
-                    <li>5d and 13d SMA: Rolling bullish</li>
-                </ul>
-            </div>
-            <div class="levels">
-                <div>
-                    <h4>Resistance</h4>
+    <div class="category">
+        <div class="category-header">
+            <h2>Asia Pacific</h2>
+        </div>
+        <div class="container">
+            <div class="card">
+                <h3>Australia 3yr Bond Future (Sept' 24)</h3>
+                <p class="summary">Extends recovery, risk leaning higher</p>
+                <div class="key-points">
+                    <h4>Key Points</h4>
                     <ul>
-                        <li>96.660</li>
-                        <li>96.620</li>
-                        <li>96.56/57</li>
+                        <li>Thursday high: 96.53</li>
+                        <li>Range: 96.37 to 96.57</li>
+                        <li>9d RSI: 55.07 (+4.06), "Neutral"</li>
+                        <li>5d and 13d SMA: Rolling bullish</li>
                     </ul>
                 </div>
-                <div>
-                    <h4>Support</h4>
+                <div class="levels">
+                    <div>
+                        <h5>Resistance</h5>
+                        <ul>
+                            <li>96.660</li>
+                            <li>96.620</li>
+                            <li>96.56/57</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>Support</h5>
+                        <ul>
+                            <li>96.370</li>
+                            <li>96.290</li>
+                            <li>96.200</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h3>JGB Future (Sept '24)</h3>
+                <p class="summary">Squeeze higher; flipping to bullish</p>
+                <div class="key-points">
+                    <h4>Key Points</h4>
                     <ul>
-                        <li>96.370</li>
-                        <li>96.290</li>
-                        <li>96.200</li>
+                        <li>Thursday high: 145.15</li>
+                        <li>5d SMA: 144.75</li>
+                        <li>9d RSI: 57.95 (+2.97), "Neutral"</li>
+                        <li>5d and 13d SMA: Rolling bullish</li>
                     </ul>
+                </div>
+                <div class="levels">
+                    <div>
+                        <h5>Resistance</h5>
+                        <ul>
+                            <li>146.28</li>
+                            <li>145.84</li>
+                            <li>145.60</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>Support</h5>
+                        <ul>
+                            <li>144.76</li>
+                            <li>144.66</li>
+                            <li>144.48</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="card">
-            <h2>Australia 10yr Bond Future (Sept'24)</h2>
-            <p class="summary">Extends recovery, risk seen higher</p>
-            <div class="key-points">
-                <h3>Key Points</h3>
-                <ul>
-                    <li>Thursday high: 96.105</li>
-                    <li>Tuesday pivot: 95.96</li>
-                    <li>9d RSI: 56.49 (+3.61), "Neutral"</li>
-                    <li>5d and 13d SMA: Rolling bullish</li>
-                </ul>
-            </div>
-            <div class="levels">
-                <div>
-                    <h4>Resistance</h4>
+    <div class="category">
+        <div class="category-header">
+            <h2>North America</h2>
+        </div>
+        <div class="container">
+            <div class="card">
+                <h3>US 10yr Treasury Future (Sept' 24)</h3>
+                <p class="summary">Consolidating after recent rally</p>
+                <div class="key-points">
+                    <h4>Key Points</h4>
                     <ul>
-                        <li>96.260</li>
-                        <li>96.180</li>
-                        <li>96.145/15</li>
+                        <li>Thursday close: 110-14</li>
+                        <li>Range: 110-02 to 110-22</li>
+                        <li>14d RSI: 61.3, "Neutral"</li>
+                        <li>20d SMA: Bullish crossover</li>
                     </ul>
                 </div>
-                <div>
-                    <h4>Support</h4>
+                <div class="levels">
+                    <div>
+                        <h5>Resistance</h5>
+                        <ul>
+                            <li>110-28</li>
+                            <li>111-08</li>
+                            <li>111-16</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>Support</h5>
+                        <ul>
+                            <li>110-00</li>
+                            <li>109-16</li>
+                            <li>109-00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Canada 10yr Bond Future (Sept' 24)</h3>
+                <p class="summary">Bullish trend intact, watching key resistance</p>
+                <div class="key-points">
+                    <h4>Key Points</h4>
                     <ul>
-                        <li>95.96/955</li>
-                        <li>95.850</li>
-                        <li>95.770</li>
+                        <li>Thursday high: 131.65</li>
+                        <li>Previous resistance: 131.50</li>
+                        <li>14d RSI: 58.9, "Neutral"</li>
+                        <li>50d EMA: Positive crossover</li>
                     </ul>
+                </div>
+                <div class="levels">
+                    <div>
+                        <h5>Resistance</h5>
+                        <ul>
+                            <li>132.00</li>
+                            <li>132.50</li>
+                            <li>133.00</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>Support</h5>
+                        <ul>
+                            <li>131.00</li>
+                            <li>130.50</li>
+                            <li>130.00</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="card">
-            <h2>JGB Future (Sept '24)</h2>
-            <p class="summary">Squeeze higher; flipping to bullish</p>
-            <div class="key-points">
-                <h3>Key Points</h3>
-                <ul>
-                    <li>Thursday high: 145.15</li>
-                    <li>5d SMA: 144.75</li>
-                    <li>9d RSI: 57.95 (+2.97), "Neutral"</li>
-                    <li>5d and 13d SMA: Rolling bullish</li>
-                </ul>
-            </div>
-            <div class="levels">
-                <div>
-                    <h4>Resistance</h4>
-                    <ul>
-                        <li>146.28</li>
-                        <li>145.84</li>
-                        <li>145.60</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Support</h4>
-                    <ul>
-                        <li>144.76</li>
-                        <li>144.66</li>
-                        <li>144.48</li>
-                    </ul>
-                </div>
-            </div>
+    <div class="category">
+        <div class="category-header">
+            <h2>Europe</h2>
         </div>
-
-        <div class="card">
-            <h2>Korean 3yr Bond Future (Sept'24)</h2>
-            <p class="summary">Another gap higher, flipping to bullish</p>
-            <div class="key-points">
-                <h3>Key Points</h3>
-                <ul>
-                    <li>Thursday high: 105.93</li>
-                    <li>Thursday low: 105.85</li>
-                    <li>9d RSI: 53.08 (+3.25), "Neutral"</li>
-                    <li>5d and 13d SMA: Rolling bullish</li>
-                </ul>
-            </div>
-            <div class="levels">
-                <div>
-                    <h4>Resistance</h4>
+        <div class="container">
+            <div class="card">
+                <h3>German Bund Future (Sept' 24)</h3>
+                <p class="summary">Choppy trading, awaiting clear direction</p>
+                <div class="key-points">
+                    <h4>Key Points</h4>
                     <ul>
-                        <li>106.29</li>
-                        <li>106.11</li>
-                        <li>106.05</li>
+                        <li>Thursday range: 132.50 - 133.20</li>
+                        <li>200d MA: 131.80</li>
+                        <li>14d RSI: 53.2, "Neutral"</li>
+                        <li>MACD: Slightly bullish</li>
                     </ul>
                 </div>
-                <div>
-                    <h4>Support</h4>
+                <div class="levels">
+                    <div>
+                        <h5>Resistance</h5>
+                        <ul>
+                            <li>133.50</li>
+                            <li>134.00</li>
+                            <li>134.50</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>Support</h5>
+                        <ul>
+                            <li>132.00</li>
+                            <li>131.50</li>
+                            <li>131.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h3>UK Gilt Future (Sept' 24)</h3>
+                <p class="summary">Bearish pressure increasing</p>
+                <div class="key-points">
+                    <h4>Key Points</h4>
                     <ul>
-                        <li>105.67</li>
-                        <li>105.59</li>
-                        <li>105.52</li>
+                        <li>Thursday low: 123.20</li>
+                        <li>Key support: 123.00</li>
+                        <li>14d RSI: 45.8, "Neutral"</li>
+                        <li>50d SMA: Bearish crossover</li>
                     </ul>
+                </div>
+                <div class="levels">
+                    <div>
+                        <h5>Resistance</h5>
+                        <ul>
+                            <li>124.50</li>
+                            <li>125.00</li>
+                            <li>125.50</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>Support</h5>
+                        <ul>
+                            <li>123.00</li>
+                            <li>122.50</li>
+                            <li>122.00</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
