@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Financial Analysis</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --primary-color: #3a5a8f;
@@ -74,6 +73,15 @@
             margin-bottom: 1em;
             font-size: 0.9em;
         }
+        .chart-container {
+            width: 100%;
+            margin-top: 1em;
+        }
+        .chart-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
         .key-points {
             background-color: var(--secondary-color);
             padding: 0.8em;
@@ -109,12 +117,6 @@
         .levels ul {
             padding-left: 1.2em;
             margin-top: 0.5em;
-        }
-        .chart-container {
-            position: relative;
-            height: 200px;
-            width: 100%;
-            margin-top: 1em;
         }
         footer {
             text-align: center;
@@ -153,7 +155,7 @@
                     <h3>Australia 3yr Bond Future (Sept' 24)</h3>
                     <p class="summary">Extends recovery, risk leaning higher</p>
                     <div class="chart-container">
-                        <canvas id="ausBondChart"></canvas>
+                        <img src="/api/placeholder/600/300" alt="Australia 3yr Bond Future Chart">
                     </div>
                     <div class="key-points">
                         <h4>Key Points</h4>
@@ -187,7 +189,7 @@
                     <h3>JGB Future (Sept '24)</h3>
                     <p class="summary">Squeeze higher; flipping to bullish</p>
                     <div class="chart-container">
-                        <canvas id="jgbChart"></canvas>
+                        <img src="/api/placeholder/600/300" alt="JGB Future Chart">
                     </div>
                     <div class="key-points">
                         <h4>Key Points</h4>
@@ -230,58 +232,5 @@
             <p>http://www.itcmarkets.com | @itcmarkets</p>
         </div>
     </footer>
-
-    <script>
-        // Function to generate random data
-        function generateData(count, min, max) {
-            return Array.from({length: count}, () => Math.random() * (max - min) + min);
-        }
-
-        // Function to create a chart
-        function createChart(ctx, label) {
-            const data = generateData(30, 95, 97);
-            const labels = Array.from({length: 30}, (_, i) => i + 1);
-
-            return new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: label,
-                        data: data,
-                        borderColor: 'rgb(75, 192, 192)',
-                        tension: 0.1
-                    }, {
-                        label: '20-day SMA',
-                        data: data.map((_, i, arr) => arr.slice(Math.max(i - 19, 0), i + 1).reduce((a, b) => a + b, 0) / Math.min(i + 1, 20)),
-                        borderColor: 'rgb(255, 99, 132)',
-                        borderDash: [5, 5],
-                        tension: 0.1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: true,
-                            position: 'top',
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: false
-                        }
-                    }
-                }
-            });
-        }
-
-        // Create charts when the page loads
-        window.onload = function() {
-            createChart(document.getElementById('ausBondChart').getContext('2d'), 'AUS 3Y Bond');
-            createChart(document.getElementById('jgbChart').getContext('2d'), 'JGB Future');
-        };
-    </script>
 </body>
 </html>
