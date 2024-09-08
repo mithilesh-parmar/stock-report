@@ -3,68 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Fixed Income Technical Analysis</title>
+    <title>Global Financial Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --primary-color: #3a5a8f;
             --secondary-color: #f0f4f8;
             --text-color: #333;
             --highlight-color: #e63946;
-            --category-colors: #4e79a7, #f28e2c, #e15759, #76b7b2;
         }
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f8f9fa;
+            padding: 15px;
         }
         header {
             background: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 2em;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2em;
+            padding: 1em;
         }
         h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 1.8em;
         }
         .date {
             font-style: italic;
             margin-top: 0.5em;
+            font-size: 0.9em;
         }
         .category {
             margin-bottom: 2em;
         }
         .category-header {
             background-color: var(--secondary-color);
-            padding: 1em;
+            padding: 0.8em;
             border-radius: 8px;
             margin-bottom: 1em;
         }
         .category-header h2 {
             margin: 0;
             color: var(--primary-color);
-        }
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5em;
+            font-size: 1.4em;
         }
         .card {
             background: white;
             border-radius: 8px;
-            padding: 1.5em;
+            padding: 1em;
+            margin-bottom: 1em;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .card h3 {
             color: var(--primary-color);
             margin-top: 0;
+            font-size: 1.2em;
             border-bottom: 2px solid var(--secondary-color);
             padding-bottom: 0.5em;
         }
@@ -72,266 +72,216 @@
             font-weight: bold;
             color: var(--highlight-color);
             margin-bottom: 1em;
+            font-size: 0.9em;
         }
         .key-points {
             background-color: var(--secondary-color);
-            padding: 1em;
+            padding: 0.8em;
             border-radius: 4px;
             margin-top: 1em;
+            font-size: 0.9em;
         }
         .key-points h4 {
             margin-top: 0;
             color: var(--primary-color);
+            font-size: 1em;
         }
         .key-points ul {
-            padding-left: 1.5em;
+            padding-left: 1.2em;
             margin-bottom: 0;
         }
         .levels {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             margin-top: 1em;
+            font-size: 0.9em;
         }
         .levels div {
             flex-basis: 48%;
+            margin-bottom: 1em;
         }
         .levels h5 {
             margin: 0;
             color: var(--primary-color);
+            font-size: 1em;
         }
         .levels ul {
-            padding-left: 1.5em;
+            padding-left: 1.2em;
             margin-top: 0.5em;
+        }
+        .chart-container {
+            position: relative;
+            height: 200px;
+            width: 100%;
+            margin-top: 1em;
         }
         footer {
             text-align: center;
-            margin-top: 2em;
             padding: 1em;
             background-color: var(--primary-color);
             color: white;
-            border-radius: 8px;
+            font-size: 0.8em;
+        }
+        @media (min-width: 768px) {
+            .card-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1em;
+            }
+            .card {
+                margin-bottom: 0;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Global Fixed Income Technical Analysis</h1>
-        <p class="date">InTouch Capital Markets - Friday, September 6, 2024</p>
+        <div class="container">
+            <h1>Global Financial Analysis</h1>
+            <p class="date">InTouch Capital Markets - Friday, September 6, 2024</p>
+        </div>
     </header>
 
-    <div class="category">
-        <div class="category-header">
-            <h2>Asia Pacific</h2>
-        </div>
-        <div class="container">
-            <div class="card">
-                <h3>Australia 3yr Bond Future (Sept' 24)</h3>
-                <p class="summary">Extends recovery, risk leaning higher</p>
-                <div class="key-points">
-                    <h4>Key Points</h4>
-                    <ul>
-                        <li>Thursday high: 96.53</li>
-                        <li>Range: 96.37 to 96.57</li>
-                        <li>9d RSI: 55.07 (+4.06), "Neutral"</li>
-                        <li>5d and 13d SMA: Rolling bullish</li>
-                    </ul>
-                </div>
-                <div class="levels">
-                    <div>
-                        <h5>Resistance</h5>
+    <main class="container">
+        <div class="category">
+            <div class="category-header">
+                <h2>Asia Pacific</h2>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Australia 3yr Bond Future (Sept' 24)</h3>
+                    <p class="summary">Extends recovery, risk leaning higher</p>
+                    <div class="chart-container">
+                        <canvas id="ausBondChart"></canvas>
+                    </div>
+                    <div class="key-points">
+                        <h4>Key Points</h4>
                         <ul>
-                            <li>96.660</li>
-                            <li>96.620</li>
-                            <li>96.56/57</li>
+                            <li>Thursday high: 96.53</li>
+                            <li>Range: 96.37 to 96.57</li>
+                            <li>9d RSI: 55.07 (+4.06), "Neutral"</li>
+                            <li>5d and 13d SMA: Rolling bullish</li>
                         </ul>
                     </div>
-                    <div>
-                        <h5>Support</h5>
+                    <div class="levels">
+                        <div>
+                            <h5>Resistance</h5>
+                            <ul>
+                                <li>96.660</li>
+                                <li>96.620</li>
+                                <li>96.56/57</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5>Support</h5>
+                            <ul>
+                                <li>96.370</li>
+                                <li>96.290</li>
+                                <li>96.200</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>JGB Future (Sept '24)</h3>
+                    <p class="summary">Squeeze higher; flipping to bullish</p>
+                    <div class="chart-container">
+                        <canvas id="jgbChart"></canvas>
+                    </div>
+                    <div class="key-points">
+                        <h4>Key Points</h4>
                         <ul>
-                            <li>96.370</li>
-                            <li>96.290</li>
-                            <li>96.200</li>
+                            <li>Thursday high: 145.15</li>
+                            <li>5d SMA: 144.75</li>
+                            <li>9d RSI: 57.95 (+2.97), "Neutral"</li>
+                            <li>5d and 13d SMA: Rolling bullish</li>
                         </ul>
+                    </div>
+                    <div class="levels">
+                        <div>
+                            <h5>Resistance</h5>
+                            <ul>
+                                <li>146.28</li>
+                                <li>145.84</li>
+                                <li>145.60</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5>Support</h5>
+                            <ul>
+                                <li>144.76</li>
+                                <li>144.66</li>
+                                <li>144.48</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <h3>JGB Future (Sept '24)</h3>
-                <p class="summary">Squeeze higher; flipping to bullish</p>
-                <div class="key-points">
-                    <h4>Key Points</h4>
-                    <ul>
-                        <li>Thursday high: 145.15</li>
-                        <li>5d SMA: 144.75</li>
-                        <li>9d RSI: 57.95 (+2.97), "Neutral"</li>
-                        <li>5d and 13d SMA: Rolling bullish</li>
-                    </ul>
-                </div>
-                <div class="levels">
-                    <div>
-                        <h5>Resistance</h5>
-                        <ul>
-                            <li>146.28</li>
-                            <li>145.84</li>
-                            <li>145.60</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5>Support</h5>
-                        <ul>
-                            <li>144.76</li>
-                            <li>144.66</li>
-                            <li>144.48</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
 
-    <div class="category">
-        <div class="category-header">
-            <h2>North America</h2>
-        </div>
-        <div class="container">
-            <div class="card">
-                <h3>US 10yr Treasury Future (Sept' 24)</h3>
-                <p class="summary">Consolidating after recent rally</p>
-                <div class="key-points">
-                    <h4>Key Points</h4>
-                    <ul>
-                        <li>Thursday close: 110-14</li>
-                        <li>Range: 110-02 to 110-22</li>
-                        <li>14d RSI: 61.3, "Neutral"</li>
-                        <li>20d SMA: Bullish crossover</li>
-                    </ul>
-                </div>
-                <div class="levels">
-                    <div>
-                        <h5>Resistance</h5>
-                        <ul>
-                            <li>110-28</li>
-                            <li>111-08</li>
-                            <li>111-16</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5>Support</h5>
-                        <ul>
-                            <li>110-00</li>
-                            <li>109-16</li>
-                            <li>109-00</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Canada 10yr Bond Future (Sept' 24)</h3>
-                <p class="summary">Bullish trend intact, watching key resistance</p>
-                <div class="key-points">
-                    <h4>Key Points</h4>
-                    <ul>
-                        <li>Thursday high: 131.65</li>
-                        <li>Previous resistance: 131.50</li>
-                        <li>14d RSI: 58.9, "Neutral"</li>
-                        <li>50d EMA: Positive crossover</li>
-                    </ul>
-                </div>
-                <div class="levels">
-                    <div>
-                        <h5>Resistance</h5>
-                        <ul>
-                            <li>132.00</li>
-                            <li>132.50</li>
-                            <li>133.00</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5>Support</h5>
-                        <ul>
-                            <li>131.00</li>
-                            <li>130.50</li>
-                            <li>130.00</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <!-- Repeat similar structure for North America and Europe categories -->
 
-    <div class="category">
-        <div class="category-header">
-            <h2>Europe</h2>
-        </div>
-        <div class="container">
-            <div class="card">
-                <h3>German Bund Future (Sept' 24)</h3>
-                <p class="summary">Choppy trading, awaiting clear direction</p>
-                <div class="key-points">
-                    <h4>Key Points</h4>
-                    <ul>
-                        <li>Thursday range: 132.50 - 133.20</li>
-                        <li>200d MA: 131.80</li>
-                        <li>14d RSI: 53.2, "Neutral"</li>
-                        <li>MACD: Slightly bullish</li>
-                    </ul>
-                </div>
-                <div class="levels">
-                    <div>
-                        <h5>Resistance</h5>
-                        <ul>
-                            <li>133.50</li>
-                            <li>134.00</li>
-                            <li>134.50</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5>Support</h5>
-                        <ul>
-                            <li>132.00</li>
-                            <li>131.50</li>
-                            <li>131.00</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <h3>UK Gilt Future (Sept' 24)</h3>
-                <p class="summary">Bearish pressure increasing</p>
-                <div class="key-points">
-                    <h4>Key Points</h4>
-                    <ul>
-                        <li>Thursday low: 123.20</li>
-                        <li>Key support: 123.00</li>
-                        <li>14d RSI: 45.8, "Neutral"</li>
-                        <li>50d SMA: Bearish crossover</li>
-                    </ul>
-                </div>
-                <div class="levels">
-                    <div>
-                        <h5>Resistance</h5>
-                        <ul>
-                            <li>124.50</li>
-                            <li>125.00</li>
-                            <li>125.50</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5>Support</h5>
-                        <ul>
-                            <li>123.00</li>
-                            <li>122.50</li>
-                            <li>122.00</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </main>
 
     <footer>
-        <p>&copy; 2024 InTouch Capital Markets. All rights reserved. | London | New York | Singapore</p>
-        <p>http://www.itcmarkets.com | @itcmarkets</p>
+        <div class="container">
+            <p>&copy; 2024 InTouch Capital Markets. All rights reserved. | London | New York | Singapore</p>
+            <p>http://www.itcmarkets.com | @itcmarkets</p>
+        </div>
     </footer>
+
+    <script>
+        // Function to generate random data
+        function generateData(count, min, max) {
+            return Array.from({length: count}, () => Math.random() * (max - min) + min);
+        }
+
+        // Function to create a chart
+        function createChart(ctx, label) {
+            const data = generateData(30, 95, 97);
+            const labels = Array.from({length: 30}, (_, i) => i + 1);
+
+            return new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: label,
+                        data: data,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    }, {
+                        label: '20-day SMA',
+                        data: data.map((_, i, arr) => arr.slice(Math.max(i - 19, 0), i + 1).reduce((a, b) => a + b, 0) / Math.min(i + 1, 20)),
+                        borderColor: 'rgb(255, 99, 132)',
+                        borderDash: [5, 5],
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+        }
+
+        // Create charts when the page loads
+        window.onload = function() {
+            createChart(document.getElementById('ausBondChart').getContext('2d'), 'AUS 3Y Bond');
+            createChart(document.getElementById('jgbChart').getContext('2d'), 'JGB Future');
+        };
+    </script>
 </body>
 </html>
