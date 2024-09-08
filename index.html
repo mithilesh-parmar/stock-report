@@ -5,62 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asia Pacific Fixed Income Technical Analysis</title>
     <style>
+        :root {
+            --primary-color: #3a5a8f;
+            --secondary-color: #f0f4f8;
+            --text-color: #333;
+            --highlight-color: #e63946;
+        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
         }
         header {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            background: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 1em;
+            padding: 2em;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2em;
         }
         h1 {
-            margin-bottom: 0.5em;
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .date {
+            font-style: italic;
+            margin-top: 0.5em;
         }
         .container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2em;
         }
         .card {
             background: white;
             border-radius: 8px;
-            padding: 20px;
-            flex: 1 1 45%;
+            padding: 1.5em;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
         }
         .card h2 {
-            color: #6e8efb;
+            color: var(--primary-color);
             margin-top: 0;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5em;
+        }
+        .summary {
+            font-weight: bold;
+            color: var(--highlight-color);
+            margin-bottom: 1em;
+        }
+        .key-points {
+            background-color: var(--secondary-color);
+            padding: 1em;
+            border-radius: 4px;
+            margin-top: 1em;
+        }
+        .key-points h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        .key-points ul {
+            padding-left: 1.5em;
+            margin-bottom: 0;
         }
         .levels {
-            background-color: #e9ecef;
-            padding: 10px;
-            border-radius: 4px;
-            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1em;
         }
-        .levels h3 {
-            margin-top: 0;
-            color: #495057;
+        .levels div {
+            flex-basis: 48%;
+        }
+        .levels h4 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+        .levels ul {
+            padding-left: 1.5em;
+            margin-top: 0.5em;
         }
         footer {
             text-align: center;
             margin-top: 2em;
             padding: 1em;
-            background-color: #333;
+            background-color: var(--primary-color);
             color: white;
             border-radius: 8px;
         }
@@ -69,55 +102,135 @@
 <body>
     <header>
         <h1>Asia Pacific Fixed Income Technical Analysis</h1>
-        <p>InTouch Capital Markets - Friday, September 6, 2024</p>
+        <p class="date">InTouch Capital Markets - Friday, September 6, 2024</p>
     </header>
 
     <div class="container">
         <div class="card">
-            <h2>Australia 3yr Bond Future (Sept' 24 contract)</h2>
-            <p><strong>Extends recovery, risk leaning higher</strong></p>
-            <p>Prices extended gains Thursday to a high of 96.53 before deflating back to the Daily Bollinger MA (Last 96.46) while holding to 96.37 to 96.57 range to retain early-August bullish reversal from 96.29 keeping with bullish pressures from late-July rally from 95.94 pivot to set the threat higher for Friday.</p>
-            <p>9d RSI settles at 55.07 +4.06, stays at a "Neutral" reading; 5d and 13d SMA rolling bullish.</p>
+            <h2>Australia 3yr Bond Future (Sept' 24)</h2>
+            <p class="summary">Extends recovery, risk leaning higher</p>
+            <div class="key-points">
+                <h3>Key Points</h3>
+                <ul>
+                    <li>Thursday high: 96.53</li>
+                    <li>Range: 96.37 to 96.57</li>
+                    <li>9d RSI: 55.07 (+4.06), "Neutral"</li>
+                    <li>5d and 13d SMA: Rolling bullish</li>
+                </ul>
+            </div>
             <div class="levels">
-                <h3>Key Levels</h3>
-                <p>Resistance: 96.660, 96.620, 96.56/57</p>
-                <p>Support: 96.370, 96.290, 96.200</p>
+                <div>
+                    <h4>Resistance</h4>
+                    <ul>
+                        <li>96.660</li>
+                        <li>96.620</li>
+                        <li>96.56/57</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li>96.370</li>
+                        <li>96.290</li>
+                        <li>96.200</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <h2>Australia 10yr Bond Future (Sept'24 contract)</h2>
-            <p><strong>Extends recovery, risk seen higher</strong></p>
-            <p>Thursday saw prices stretch higher to 96.105 building on Tuesday pivot at 95.96, erasing the majority of late-August/ early September descent from 96.145 to 95.96, to retain early-August bullish reversal from 95.85, keeping with bullish forces from double bottom in May and July period (95.515 and 95.525) to set risk higher for Friday.</p>
-            <p>9d RSI settles 56.49 +3.61, stays at a "Neutral" reading; 5d and 13d SMA rolling bullish</p>
-            <div class="levels">
-                <h3>Key Levels</h3>
-                <p>Resistance: 96.260, 96.180, 96.145/15</p>
-                <p>Support: 95.96/955, 95.850, 95.770</p>
-            </div>
-        </div>
-    </div>
 
-    <div class="container">
         <div class="card">
-            <h2>JGB Future (Sept '24 contract)</h2>
-            <p><strong>Squeeze higher; flipping to bullish</strong></p>
-            <p>Prices squeezed higher Thursday past 145.07 to a high of 145.15 after finding a footing above the 5d SMA (Last 144.75) to build on recovery from Tuesday low at 144.35 after holding Daily lower Bollinger (Last 144.37) and more important support at 144.30 to sustain broader positive forces from the early-August impulse from 142.88 to set a bullish bias for Friday.</p>
-            <p>9d RSI settles at 57.95 +2.97, stays at a "Neutral" reading. 5d and 13d SMA rolling bullish</p>
+            <h2>Australia 10yr Bond Future (Sept'24)</h2>
+            <p class="summary">Extends recovery, risk seen higher</p>
+            <div class="key-points">
+                <h3>Key Points</h3>
+                <ul>
+                    <li>Thursday high: 96.105</li>
+                    <li>Tuesday pivot: 95.96</li>
+                    <li>9d RSI: 56.49 (+3.61), "Neutral"</li>
+                    <li>5d and 13d SMA: Rolling bullish</li>
+                </ul>
+            </div>
             <div class="levels">
-                <h3>Key Levels</h3>
-                <p>Resistance: 146.28, 145.84, 145.60</p>
-                <p>Support: 144.76, 144.66, 144.48</p>
+                <div>
+                    <h4>Resistance</h4>
+                    <ul>
+                        <li>96.260</li>
+                        <li>96.180</li>
+                        <li>96.145/15</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li>95.96/955</li>
+                        <li>95.850</li>
+                        <li>95.770</li>
+                    </ul>
+                </div>
             </div>
         </div>
+
         <div class="card">
-            <h2>Korean 3yr Bond Future (Sept'24 contract)</h2>
-            <p><strong>Another gap higher, flipping to bullish</strong></p>
-            <p>Prices gapped higher Thursday reaching 105.93 before deflating to a low of 105.85 but still able to build on Wednesday bull gap and Tuesday pivot at 105.59 to sustain bullish pressure from late July hammer candlestick low at 105.39 to set a bullish bias for Friday.</p>
-            <p>9d RSI 53.08 +3.25, stays at a "Neutral" reading. 5d and 13d SMA rolling bullish</p>
+            <h2>JGB Future (Sept '24)</h2>
+            <p class="summary">Squeeze higher; flipping to bullish</p>
+            <div class="key-points">
+                <h3>Key Points</h3>
+                <ul>
+                    <li>Thursday high: 145.15</li>
+                    <li>5d SMA: 144.75</li>
+                    <li>9d RSI: 57.95 (+2.97), "Neutral"</li>
+                    <li>5d and 13d SMA: Rolling bullish</li>
+                </ul>
+            </div>
             <div class="levels">
-                <h3>Key Levels</h3>
-                <p>Resistance: 106.29, 106.11, 106.05</p>
-                <p>Support: 105.67, 105.59, 105.52</p>
+                <div>
+                    <h4>Resistance</h4>
+                    <ul>
+                        <li>146.28</li>
+                        <li>145.84</li>
+                        <li>145.60</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li>144.76</li>
+                        <li>144.66</li>
+                        <li>144.48</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Korean 3yr Bond Future (Sept'24)</h2>
+            <p class="summary">Another gap higher, flipping to bullish</p>
+            <div class="key-points">
+                <h3>Key Points</h3>
+                <ul>
+                    <li>Thursday high: 105.93</li>
+                    <li>Thursday low: 105.85</li>
+                    <li>9d RSI: 53.08 (+3.25), "Neutral"</li>
+                    <li>5d and 13d SMA: Rolling bullish</li>
+                </ul>
+            </div>
+            <div class="levels">
+                <div>
+                    <h4>Resistance</h4>
+                    <ul>
+                        <li>106.29</li>
+                        <li>106.11</li>
+                        <li>106.05</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li>105.67</li>
+                        <li>105.59</li>
+                        <li>105.52</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
